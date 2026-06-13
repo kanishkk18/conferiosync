@@ -1,4 +1,5 @@
 import { cookies } from "next/headers";
+import Image from "next/image";
 import Link from "next/link";
 
 import type { Lang } from "@/types";
@@ -28,9 +29,16 @@ export async function Navbar() {
       <div className="container flex h-14 items-center space-x-4">
         <Link href="/" className="flex items-center">
           <div className="flex items-center gap-1">
-            <Icons.Logo className="size-4" />
+            <Image
+              className="w-auto h-7"
+              src="https://pub-08af51b0459743828032880ad678a4cf.r2.dev/logo-transparent-sync.png"
+              height={100}
+              width={100}
+              alt="logo"
+              unoptimized
+            />
 
-            <span className="font-heading lowercase tracking-wide">
+            <span className="font-heading capitalize tracking-wide">
               {siteConfig.name}
             </span>
           </div>

@@ -1,10 +1,10 @@
 {
-  "name": "Infinitunes",
-  "short_name": "Infinitunes",
+  "name": "conferioSync",
+  "short_name": "Sync",
   "start_url": "/",
   "icons": [
-    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192" },
-    { "src": "/icon-512.png", "type": "image/png", "sizes": "512x512" }
+    { "src": "https://pub-08af51b0459743828032880ad678a4cf.r2.dev/38484e87-39a3-4f4f-a5fa-2d8979189f0e.jpg", "type": "image/png", "sizes": "192x192" },
+    { "src": "https://pub-08af51b0459743828032880ad678a4cf.r2.dev/38484e87-39a3-4f4f-a5fa-2d8979189f0e.jpg", "type": "image/png", "sizes": "512x512" }
   ],
   "theme_color": "#ffffff",
   "background_color": "#ffffff",

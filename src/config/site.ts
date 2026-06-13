@@ -1,11 +1,11 @@
 export const siteConfig = {
-  name: "Infinitunes",
+  name: "conferioSync",
   url: "https://infinitunes.rajputhemant.me",
   description:
     "A Simple Music Player Web App built using Next.js, shadcn/ui, TailwindCSS, DrizzleORM and more...",
 
   author: {
-    name: "Hemant Rajput",
+    name: "k9codrr",
     url: "https://rajputhemant.me",
     email: "68769346+rajput-hemant@users.noreply.github.com",
     x: "@rajput_hemant01",
