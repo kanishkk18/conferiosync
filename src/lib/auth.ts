@@ -140,7 +140,7 @@ export const {
           id: user.id as string,
           name: user.name,
           email: (user.email ?? "") as string,
-          username: (user as any).username,
+          username: (user as { username?: string | null }).username,
           picture: user.image,
         };
       }
@@ -176,11 +176,19 @@ export const {
 
     session: async ({ session, token }) => {
       if (token.sub && session.user) {
-        session.user.id = token.sub;
-        session.user.name = token.name;
-        session.user.email = token.email;
-        session.user.image = token.picture;
-        (session.user as any).username = token.username;
+        const user = session.user as {
+          id: string;
+          name?: string | null;
+          email?: string | null;
+          image?: string | null;
+          username?: string | null;
+        };
+
+        user.id = token.sub;
+        user.name = token.name;
+        user.email = token.email;
+        user.image = token.picture;
+        user.username = token.username;
       }
 
       return session;
