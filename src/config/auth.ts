@@ -60,21 +60,16 @@ import { env } from "@/lib/env";
 import { loginSchema } from "@/lib/validations";
 
 export const authConfig: NextAuthConfig = {
-  // REQUIRED for production on Vercel
   trustHost: true,
-
-  // REQUIRED in production (or set AUTH_SECRET env var)
   secret: env.AUTH_SECRET,
 
-  // Since you use CredentialsProvider, force JWT sessions
   session: {
     strategy: "jwt",
   },
 
-  // Optional but recommended: custom error page
   pages: {
     signIn: "/login",
-    error: "/auth/error", // or "/login?error=auth"
+    error: "/auth/error",
   },
 
   providers: [
@@ -125,17 +120,18 @@ export const authConfig: NextAuthConfig = {
   ],
 
   callbacks: {
-    async jwt({ token, user, account }) {
+    async jwt({ token, user }) {
       if (user) {
-        token.id = user.id;
-        token.username = user.username;
+        // Fix: Add type assertions or null checks
+        token.id = user.id as string;
+        token.username = (user.username as string) ?? null;
       }
       return token;
     },
     async session({ session, token }) {
       if (token) {
         session.user.id = token.id as string;
-        session.user.username = token.username as string;
+        session.user.username = token.username as string | undefined;
       }
       return session;
     },
